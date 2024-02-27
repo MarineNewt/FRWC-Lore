@@ -1,0 +1,110 @@
+.maincontainer{
+  width: 100vw;
+  height: 100dvh;
+}
+
+.background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 90%;
+  z-index: -1;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title{
+  margin-top: 50px;
+  margin-bottom: 80px;
+  font-size: 4vw;
+}
+
+.timelineContainer{
+  width: 85vw;
+  height: 50vh;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.timelineContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.timelinePiece{
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+}
+.timelineetitle{
+  cursor: pointer;
+  background-color: antiquewhite;
+  border: 2px black double;
+  padding-inline: 5%;
+  padding-block: 2%;
+}
+.timelinePiece:nth-child(2n){
+  flex-direction: column-reverse;
+}
+
+.infocontainer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.3);
+  display: flex;
+  flex-direction: row-reverse;
+  animation: fadeIn 1s;
+}
+
+.infoconcontainer{
+  height: 100%;
+  width: 35%;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  animation: slideInLeft 1s ;
+}
+
+.infotitle{
+  padding-inline: 5%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-decoration: underline;
+}
+
+.infotext{
+  padding-inline: 5%;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from{
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
