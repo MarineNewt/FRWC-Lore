@@ -9,18 +9,20 @@ import styles from "@/styles/Timeline.module.css";
 const caudex = Caudex({subsets: ['latin'], weight: '700'})
 
 export default function Timeline() {
-  const timelinescrolled = useRef(null);
+  const timelinescrolled = useRef<HTMLDivElement>(null);
   const [infofocus, setinfo] = useState<number>(0)
 
   useEffect(()=>{
     document.addEventListener("wheel", function (e) {
-      var variation = parseInt(e.deltaY);
-      if(variation > 0){
-        setTimeout(()=>{timelinescrolled.current.scrollLeft += 4}, 50);
-        setTimeout(()=>{timelinescrolled.current.scrollLeft += 4}, 100);
-        timelinescrolled.current.scrollLeft += 6;
-      } else {timelinescrolled.current.scrollLeft -= 6;setTimeout(()=>{timelinescrolled.current.scrollLeft -= 4}, 50);setTimeout(()=>{timelinescrolled.current.scrollLeft -= 4}, 100);}
-      return false;
+      var variation = parseInt(e.deltaY as unknown as string);
+      if(timelinescrolled.current){
+        if(variation > 0 ){
+          setTimeout(()=>{if(timelinescrolled.current){timelinescrolled.current.scrollLeft += 4}}, 50);
+          setTimeout(()=>{if(timelinescrolled.current){timelinescrolled.current.scrollLeft += 4}}, 100);
+          timelinescrolled.current.scrollLeft += 6;
+        } else {timelinescrolled.current.scrollLeft -= 6;setTimeout(()=>{if(timelinescrolled.current){timelinescrolled.current.scrollLeft -= 4}}, 50);setTimeout(()=>{if(timelinescrolled.current){timelinescrolled.current.scrollLeft -= 4}}, 100);}
+      }
+        return false;
     }, true);
   }, [])
 

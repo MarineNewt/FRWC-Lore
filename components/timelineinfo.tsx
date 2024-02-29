@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const caudex = Caudex({subsets: ['latin'], weight: '400'})
 
-export default function timelineinfo({e, setinfo}) {
+export default function timelineinfo({ e, setinfo }: {e: number, setinfo: any}) {
     return <div className={[styles.infocontainer, caudex.className].join(" ")} onClick={()=>{setinfo(0)}}>
 
     {e ==  1 && <div className={styles.infoconcontainer}>
